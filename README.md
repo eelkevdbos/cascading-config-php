@@ -17,7 +17,6 @@ $config = new Vdbf\Configuration\ConfigurationManager(array(
 
 ###Configuration writer
 ```php
-
 $config = new Vdbf\Configuration\Adapter\ArrayConfiguration(array('most' => 'important'));
 
 //via setter method
@@ -27,5 +26,13 @@ $config->set('key', 'value');
 $config['key'] = $value;
 ```
 
+###Configuration reader
+```php
+$config = new Vdbf\Configuration\Adapter\YamlConfiguration('./path/to/yaml.yaml');
+
+foreach($config as $key => $value) {
+  echo "$key:$value\n";
+}
+```
 
 Configuration entries can be retrieved by key. Calls to `get($key)` and `set($key, $value)` will be cascaded down the list of configurations. The first entry found will be used as value returned by `get()`.
